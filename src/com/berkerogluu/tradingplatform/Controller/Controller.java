@@ -1,7 +1,6 @@
-package tradingplatform.Controller;
+package com.berkerogluu.tradingplatform.Controller;
 
-import tradingplatform.View.*;
-
+import com.berkerogluu.tradingplatform.View.*;
 
 public class Controller {
 

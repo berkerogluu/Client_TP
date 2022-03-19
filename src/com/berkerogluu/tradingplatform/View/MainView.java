@@ -1,4 +1,4 @@
-package tradingplatform.View;
+package com.berkerogluu.tradingplatform.View;
 
 import javax.swing.*;
 import java.util.Locale;
