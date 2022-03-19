@@ -1,3 +1,5 @@
+package tradingplatform.View;
+
 import javax.swing.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
