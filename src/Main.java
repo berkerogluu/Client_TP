@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String args[]){
-        TradeView mTradeView = new TradeView();
+        MainView mMainView = new MainView();
 
-        //mTradeView.getFrame().setTitle("test");
+        //mMainView.getFrame().setTitle("test");
     }
 }

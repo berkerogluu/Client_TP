@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class TradeView extends JFrame{
+public class MainView extends JFrame{
     private static ResourceBundle mBundle;
 
-    public TradeView(){
+    public MainView(){
         // -Language Support-
         // Locale.setDefault(new Locale("en_US"));
         Locale.getDefault();
-        mBundle = ResourceBundle.getBundle("TradeView");
+        mBundle = ResourceBundle.getBundle("MainView");
 
         // Frame
-        this.setTitle(mBundle.getString("Title"));
+        this.setTitle(mBundle.getString("TITLE"));
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
