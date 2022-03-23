@@ -2,18 +2,10 @@ package com.berkerogluu.tradingplatform.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 
-public class MarketWatchView{
+public class MarketWatchView extends JTable {
 
-    private JPanel mPanel;
-    private JTable mTable;
-    private JScrollPane mScrollPane;
-
-    public MarketWatchView(){
-        mPanel = new JPanel();
-        mPanel.setBackground(Color.GRAY);
-
+    public MarketWatchView() {
 
         String[] columnNames = { "Symbol", "Ask", "Bid", "Spread" };
         String[][] data = {{"USDJPY","136.500","136.502","2"}};
@@ -25,15 +17,12 @@ public class MarketWatchView{
             }
         };
 
-        mTable = new JTable(mModel);
-        mTable.setPreferredScrollableViewportSize(mTable.getPreferredSize());
-        mTable.setFillsViewportHeight(true);
-
-        mPanel.add(new JScrollPane(mTable));
+        this.setModel(mModel);
+        this.setPreferredScrollableViewportSize(this.getPreferredSize());
+        this.setFillsViewportHeight(true);
     }
 
-    public JPanel getPanel(){
-        return mPanel;
+    public JScrollPane getTable(){
+        return new JScrollPane(this);
     }
-
 }

@@ -1,20 +1,21 @@
 package com.berkerogluu.tradingplatform.view;
 
 import com.berkerogluu.tradingplatform.view.*;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class MainView {
 
     private FrameView mFrameView;
+    private LeftPanelView mLeftPanelView;
     private MarketWatchView mMarketWatchView;
 
     public MainView(){
         mFrameView = new FrameView();
+        mLeftPanelView = new LeftPanelView();
         mMarketWatchView = new MarketWatchView();
 
-        mFrameView.add(mMarketWatchView.getPanel(), BorderLayout.WEST);
+        mLeftPanelView.getPanel().add(mMarketWatchView.getTable());
+        mFrameView.add(mLeftPanelView.getPanel(), BorderLayout.WEST);
 
         // End Render
         mFrameView.setVisible(true);
