@@ -14,6 +14,7 @@ public class MainView {
         mLeftPanelView = new LeftPanelView();
         mMarketWatchView = new MarketWatchView();
 
+
         mLeftPanelView.getPanel().add(mMarketWatchView.getTable());
         mFrameView.add(mLeftPanelView.getPanel(), BorderLayout.WEST);
 
