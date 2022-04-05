@@ -43,3 +43,21 @@ E.g: (SOH replaced by "|")
 
 Has a Body Length of 65. The SOH delimiter at the end of a Tag=Value belongs to the Tag.
 
+## Trailer: Checksum
+
+The checksum of a FIX message is always the last field in the message. It is composed of three characters and has tag 10. It is given by summing the ASCII value of all characters in the message, except for those of the checksum field itself, and performing [modulo](https://en.wikipedia.org/wiki/Modulo_operation) 256 over the resulting summation.
+
+For example, in the message above, the summation of all ASCII values (including the SOH character which has a value of 1 in the ASCII table) results in 4158. Performing modulo operation gives the value 62. Since the the checksum is composed of three characters, 062 is used.
+
+## FIX Transport (FIXT)
+
+The original FIX session protocol did not have its own name since it was part of a monolithic specification covering application layer semantics and message encoding as well.
+However starting with FIX.5.0, the session layer was split off as an independent specification with the introduction of FIXT. The current FIXT version is 1.1.
+
+FIXT is transport independent. However, it usually employed over Transmission Control Protocol (TCP).
+
+FIXT is a point to point protocol. It guarantees message delivery in both directions. Messages sent in each direction carry a message sequence number in the message header. If there is a communication fault, a peer may request retransmission of missed messages. Message delivery is supported even in the event of disconnection and later re-establishment of a session.
+
+![Diagrammatic representation of FIX system](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Financial_Information_eXchange_System_Connectivity_Diagram.svg/800px-Financial_Information_eXchange_System_Connectivity_Diagram.svg.png)
+
+
