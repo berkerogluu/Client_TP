@@ -34,4 +34,16 @@ public class OrdersPanel extends JPanel {
     public JPanel getPanel(){
         return this;
     }
+
+    public JButton getCloseOrderButton(){
+        return btnCloseOrder;
+    }
+
+    public JLabel getAccountInfo(){
+        return lblAccountInfo;
+    }
+
+    public JTable getOrdersTable(){
+        return tblOrdersList;
+    }
 }

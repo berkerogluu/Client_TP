@@ -18,4 +18,8 @@ public class MarketWatchPanel extends JPanel {
     public JPanel getPanel(){
         return this;
     }
+
+    public JTable getMarketWatchTable(){
+        return tblMarketWatch;
+    }
 }

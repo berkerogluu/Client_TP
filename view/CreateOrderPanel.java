@@ -7,6 +7,7 @@ public class CreateOrderPanel extends JPanel {
     private JButton btnInstantSell;
     private JLabel lblOrderLot;
     private JTextField tfOrderLot;
+    private JLabel lblOrderSymbol;
     public CreateOrderPanel(){
         this.setLayout(new FlowLayout());
         this.setBounds(0,0,300,100);
@@ -21,13 +22,32 @@ public class CreateOrderPanel extends JPanel {
         tfOrderLot = new JTextField("0.01");
         tfOrderLot.setPreferredSize(new Dimension(100,20));
 
+        lblOrderSymbol = new JLabel("[USDJPY]");
+
         this.add(btnInstantBuy);
         this.add(btnInstantSell);
         this.add(lblOrderLot);
         this.add(tfOrderLot);
+        this.add(lblOrderSymbol);
     }
 
     public JPanel getPanel(){
         return this;
+    }
+
+    public JButton getBuyButton(){
+        return btnInstantBuy;
+    }
+
+    public JButton getSellButton(){
+        return btnInstantSell;
+    }
+
+    public JTextField getOrderSize(){
+        return tfOrderLot;
+    }
+
+    public JLabel getOrderSymbol(){
+        return lblOrderSymbol;
     }
 }
