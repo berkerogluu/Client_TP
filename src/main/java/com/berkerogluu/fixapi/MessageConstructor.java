@@ -107,6 +107,46 @@ public class MessageConstructor {
         return headerAndMessageAndTrailer.replace("|", "\u0001");
     }
 
+    public String MarketDataRequestMsg(SessionQualifier qualifier, int messageSequenceNumber, String marketDataRequestID, int subscriptionRequestType,
+    int marketDepth, int marketDataEntryType, int noRelatedSymbol, long symbol){
+
+        // test symbol / remove later
+        symbol = 0;
+
+        StringBuilder body = new StringBuilder();
+
+        //
+        body.append("262=" + marketDataRequestID + "|");
+
+        //
+        body.append("263=" + subscriptionRequestType + "|");
+
+        //
+        body.append("264=" + marketDepth + "|");
+
+        //
+        body.append("265=1|");
+
+        //
+        body.append("267=2|");
+
+        //
+        body.append("269=0|269=1|");
+
+        //
+        body.append("146=" + noRelatedSymbol + "|");
+
+        //
+        body.append("55=" + symbol + "|");
+
+        String header = ConstructHeader(qualifier, ApplicationMessageCode(ApplicationMessageType.MarketDataRequest), messageSequenceNumber, body.toString());
+        String headerAndBody = header + body;
+        String trailer = ConstructTrailer(headerAndBody);
+        String headerAndMessageAndTrailer = header + body + trailer;
+
+        return headerAndMessageAndTrailer.replace("|", "\u0001");
+    }
+
 
 
     private String ConstructHeader(SessionQualifier qualifier, String type, int messageSequenceNumber, String bodyMessage){
@@ -198,6 +238,37 @@ public class MessageConstructor {
 
             case TestRequest:
                 return "1";
+
+            default:
+                return "0";
+        }
+    }
+
+    private String ApplicationMessageCode( ApplicationMessageType type){
+        switch (type){
+            case MarketDataRequest:
+                return "V";
+
+            case MarketDataIncrementalRefresh:
+                return "X";
+
+            case NewOrderSingle:
+                return "D";
+
+            case OrderStatusRequest:
+                return "H";
+
+            case ExecutionReport:
+                return "8";
+
+            case BusinessMessageReject:
+                return "j";
+
+            case RequestForPosition:
+                return "AN";
+
+            case PositionReport:
+                return "AP";
 
             default:
                 return "0";
