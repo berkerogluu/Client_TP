@@ -1,6 +1,7 @@
 package com.berkerogluu.app;
 
 import com.berkerogluu.controller.Controller;
+import com.berkerogluu.model.FixApiModel;
 import com.berkerogluu.view.Core;
 
 public class App {
@@ -8,7 +9,9 @@ public class App {
         Core core = new Core();
         core.init();
 
-        Controller controller = new Controller(core);
+        FixApiModel fixApiModel = new FixApiModel();
+
+        Controller controller = new Controller(core, fixApiModel);
         controller.init();
     }
 }

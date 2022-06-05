@@ -177,8 +177,8 @@ public class MessageConstructor {
 
         //
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
-        dateFormat.format(new Date(), new StringBuffer(), new FieldPosition(0));
-        message.append("52=" + dateFormat + "|");
+        String mDate = String.valueOf(dateFormat.format(new Date(), new StringBuffer(), new FieldPosition(0)));
+        message.append("52=" + mDate + "|");
 
         //
         int length = message.length() + bodyMessage.length();
