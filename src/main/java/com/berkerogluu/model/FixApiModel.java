@@ -13,7 +13,7 @@ public class FixApiModel {
 
     private String _host = "h51.p.ctrader.com";
     private String _username = "8253104";
-    private String _password = "Adana3301";
+    private String _password = "test1234";
     private String _senderCompID = "demo.icmarkets.8253104";
     private String _senderSubID = "QUOTE";
 
