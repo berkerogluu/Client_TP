@@ -77,6 +77,38 @@ public class MessageConstructor {
         return headerAndMessageAndTrailer.replace("|", "\u0001");
     }
 
+    public String HeartbeatMessage(SessionQualifier qualifier, int messageSequenceNumber){
+        String header = ConstructHeader(qualifier, SessionMessageCode(SessionMessageType.Heartbeat), messageSequenceNumber, "");
+        String trailer = ConstructTrailer(header);
+        String headerAndMessageAndTrailer = header + trailer;
+
+        return headerAndMessageAndTrailer.replace("|", "\u0001");
+    }
+
+    public String TestRequestMessage(SessionQualifier qualifier, int messageSequenceNumber, int testRequestID){
+        StringBuilder body = new StringBuilder();
+
+        //
+        body.append("112=" + testRequestID + "|");
+
+        String header = ConstructHeader(qualifier, SessionMessageCode(SessionMessageType.TestRequest), messageSequenceNumber, body.toString());
+        String headerAndBody = header + body;
+        String trailer = ConstructTrailer(headerAndBody);
+        String headerAndMessageAndTrailer = header + body + trailer;
+
+        return headerAndMessageAndTrailer.replace("|", "\u0001");
+    }
+
+    public String LogoutMessage(SessionQualifier qualifier, int messageSequenceNumber){
+        String header = ConstructHeader(qualifier, SessionMessageCode(SessionMessageType.Logout), messageSequenceNumber, "");
+        String trailer = ConstructTrailer(header);
+        String headerAndMessageAndTrailer = header + trailer;
+
+        return headerAndMessageAndTrailer.replace("|", "\u0001");
+    }
+
+
+
     private String ConstructHeader(SessionQualifier qualifier, String type, int messageSequenceNumber, String bodyMessage){
         StringBuilder header = new StringBuilder();
 
