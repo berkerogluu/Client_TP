@@ -1,3 +1,7 @@
+package com.berkerogluu.view;
+
+import com.berkerogluu.view.ChartPanel;
+
 public class Core {
 
     private IFrame mFrame;

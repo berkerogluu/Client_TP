@@ -1,3 +1,5 @@
+package com.berkerogluu.view;
+
 import javax.swing.*;
 import java.awt.*;
 
